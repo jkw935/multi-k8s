@@ -14,10 +14,10 @@ before_install:
     - gcloud config set project helpful-range-277713
     - gcloud config set compute/zone us-central1-c
     - gcloud container clusters get-credentials multi-cluster
-    - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_USERNAME" --password-stdin
-    - docker build -t jkw935/react-test -f ./client/Dockerfile.dev ./client
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - docker build -t jkw5/react-test -f ./client/Dockerfile.dev ./client
 script:
-    - docker run -e CI=true jkw935/docker-react npm run test
+    - docker run -e CI=true jkw5/docker-react npm run test
 
 deploy:
     provider: script
